@@ -4,8 +4,10 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class User extends Authenticatable
 {
@@ -22,6 +24,14 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    public function roles() : BelongsToMany {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function hasRole($role) : Boolean {
+        return $this->roles()->where('name', $role)->exists();
+    }
 
     /**
      * The attributes that should be hidden for serialization.
