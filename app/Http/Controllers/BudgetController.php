@@ -27,20 +27,20 @@ class BudgetController extends Controller
     {
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
-        $newBudget = budget::create($validated);
+        $newBudget = Budget::create($validated);
         if (Auth()->user()->current_budget_id === null) {
             Auth()->user()->update(['current_budget_id' => $newBudget->id]);
         }
         return redirect()->route('budget.index')->with('success', 'Budget created successfully.');
     }
 
-    public function show(budget $budget)
+    public function show(Budget $budget)
     {
         // TODO Authorization
         return $budget;
     }
 
-    public function update(BudgetRequest $request, budget $budget)
+    public function update(BudgetRequest $request, Budget $budget)
     {
         // TODO Authorization
         $budget->update($request->validated());
@@ -48,7 +48,7 @@ class BudgetController extends Controller
         return $budget;
     }
 
-    public function destroy(budget $budget)
+    public function destroy(Budget $budget)
     {
         // TODO Authorization
         $budget->delete();
