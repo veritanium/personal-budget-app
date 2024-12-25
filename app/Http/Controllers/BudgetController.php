@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\budgetRequest;
-use App\Models\budget;
+use App\Http\Requests\BudgetRequest;
+use App\Models\Budget;
 use Illuminate\Support\Facades\Auth;
 
-class budgetController extends Controller
+class BudgetController extends Controller
 {
     public function index()
     {
@@ -19,11 +19,19 @@ class budgetController extends Controller
         return view('budget.index', compact('budgets'));
     }
 
-    public function store(budgetRequest $request)
+    public function create() {
+        return view('budget.create');
+    }
+
+    public function store(BudgetRequest $request)
     {
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
-        return budget::create($validated);
+        $newBudget = budget::create($validated);
+        if (Auth()->user()->current_budget_id === null) {
+            Auth()->user()->update(['current_budget_id' => $newBudget->id]);
+        }
+        return redirect()->route('budget.index')->with('success', 'Budget created successfully.');
     }
 
     public function show(budget $budget)
@@ -32,7 +40,7 @@ class budgetController extends Controller
         return $budget;
     }
 
-    public function update(budgetRequest $request, budget $budget)
+    public function update(BudgetRequest $request, budget $budget)
     {
         // TODO Authorization
         $budget->update($request->validated());

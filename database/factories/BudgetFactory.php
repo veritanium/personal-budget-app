@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\budget;
+use App\Models\Budget;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class budgetFactory extends Factory
+class BudgetFactory extends Factory
 {
     protected $model = budget::class;
 

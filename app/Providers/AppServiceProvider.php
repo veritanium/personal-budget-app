@@ -18,6 +18,11 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('access-admin', function (User $user) {
            return $user->hasRole('admin');
         });
+
+        // TODO Implement gate check for selected budget
+        Gate::define('access-budget', function (User $user) {
+            return $user->current_budget_id !== null;
+        });
     }
 
     /**

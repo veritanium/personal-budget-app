@@ -4,12 +4,13 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class budgetRequest extends FormRequest
+class BudgetRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
             'name' => ['required'],
+            'description' => ['max:500'],
         ];
     }
 

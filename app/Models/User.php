@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\Hasone;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use phpDocumentor\Reflection\Types\Boolean;
@@ -36,6 +37,10 @@ class User extends Authenticatable
 
     public function budgets(): hasMany {
         return $this->hasMany(Budget::class);
+    }
+
+    public function currentBudget(): hasOne {
+        return $this->hasOne(Budget::class, 'id', 'current_budget_id');
     }
 
     /**
