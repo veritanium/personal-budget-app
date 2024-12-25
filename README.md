@@ -14,48 +14,48 @@ This is a simple web application built on Laravel and SQLite for simple family a
 ## To Do
 
 - User access
-  - Remove registration from public
-  - Only admin can create users
-  - Admin can see every budget
-  - Create roles
-  - Create policies
+  - [x] Remove registration from public
+  - [ ] Only admin can create users
+  - [ ] Admin can see every budget
+  - [x] Create roles
+  - [ ] Create policies
 - Create Budget
-    - Has name (e.g. Family Budget)
-    - Assigned to creating user
+    - [x]  Has name (e.g. Family Budget)
+    - [x] Assigned to creating user 
 - Create periods
-  - Has name (e.g. January Period 1)
-  - Has time range (period)
-  - Has budget_items of how income will be spent - has categories
-  - Accesses ledger for given time range both debits and credits
+  - [ ] Has name (e.g. January Period 1)
+  - [ ] Has time range (period)
+  - [ ] Has budget_items of how income will be spent - has categories
+  - [ ] Accesses ledger for given time range both debits and credits
 - Create categories
-  - Name, budget_id
+  - [ ] Name, budget_id
 - Create Accounts
-  - id, budget_id, name, bank name, bank address
+  - [ ] id, budget_id, name, bank name, bank address
 - Create budget_items
-    - id, period_id, category_id, amount (cents)
+    - [ ] id, period_id, category_id, amount (cents)
 - Create tags
-  - Tags are for further describing the broad categories for future statistical analysis
-  - e.g. Gaia.com could have category of entertainment but tags of 'non-essential' and 'steaming'
-  - Create pivot table for budget_item_tag
-- Create ledger
-    - Tracks debits and credits and transfer 
-    - Has categories, tags, and accounts
-    - Debits have from account
-    - Credits have to account
-    - Transfers create two ledger entries - 1 debit and 1 credit for the respective accounts, tags, and categories
-    - id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged)
-- Create pivot table for ledger_tag
-- Create view of budgets
-    - Views List of available budgets
+  - [ ] Tags are for further describing the broad categories for future statistical analysis
+  - [ ] e.g. Gaia.com could have category of entertainment but tags of 'non-essential' and 'steaming'
+  - [ ] Create pivot table for budget_item_tag
+- Create transactions (ledger)
+    - [ ] Tracks debits and credits and transfer 
+    - [ ] Has categories, tags, and accounts
+    - [ ] Debits have from account
+    - [ ] Credits have to account
+    - [ ] Transfers create two ledger entries - 1 debit and 1 credit for the respective accounts, tags, and categories
+    - [ ] id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged)
+- [ ] Create pivot table for ledger_tag
+- [ ] Create view of budgets
+    - [ ] Views List of available budgets
 - Create view of periods (like 1 month view containing two period views)
-    - Views calculate and display totals of income and outgoing and balances within certain categories and accounts
-    - have name and pivot table period_view_period
-    - Can also be used to create end-of year analysis view 
+    - [ ] Views calculate and display totals of income and outgoing and balances within certain categories and accounts
+    - [ ] have name and pivot table period_view_period
+    - [ ] Can also be used to create end-of year analysis view 
 - Create analysis views
-  - Period_views can be locked if they are past their time range and calculated for static storage
-  - Graphs will then be generated to show financial patterns
-  - Items calculated will be total
-- Create deployment to prod server environment
+  - [ ] Period_views can be locked if they are past their time range and calculated for static storage
+  - [ ] Graphs will then be generated to show financial patterns
+  - [ ] Items calculated will be total
+- [ ] Create deployment to prod server environment
 
 ## License
 
