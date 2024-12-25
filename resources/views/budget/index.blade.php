@@ -14,7 +14,7 @@
                     <div class="flex min-w-0 gap-x-4">
                         <div class="min-w-0 flex-auto">
                             <div class="flex justify-between">
-                                <a href="/budget/{{  $budget->id }}" class="text-sm/6 font-semibold text-gray-900">{{ $budget->name }}</a>
+                                <a href="/budget/{{  $budget->id }}/edit" class="text-sm/6 font-semibold text-gray-900">{{ $budget->name }}</a>
                                 @if(Auth::user()->current_budget_id === $budget->id)
                                     <p class="text-yellow-600 font-bold text-lg">Current Budget</p>
                                 @else

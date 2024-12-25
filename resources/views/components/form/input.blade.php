@@ -12,7 +12,7 @@
 
 <x-form.field :$label :$name>
     @if($attributes->get('type') === 'textarea')
-        <textarea {{ $attributes($defaults) }}></textarea>
+        <textarea {{ $attributes($defaults) }}>{{ $slot }}</textarea>
     @else
         <input {{ $attributes($defaults) }}>
     @endif

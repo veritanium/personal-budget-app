@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/budget/{budget}', [ProfileController::class, 'budget'])->name('profile.budget');
 
     Route::resource('budget', BudgetController::class);
+    Route::patch('/budget/{budget}', [BudgetController::class, 'update'])->name('budget.update');
 
 });
 

@@ -40,12 +40,16 @@ class BudgetController extends Controller
         return $budget;
     }
 
+    public function edit(Budget $budget) {
+        return view('budget.edit', compact('budget'));
+    }
+
     public function update(BudgetRequest $request, Budget $budget)
     {
         // TODO Authorization
         $budget->update($request->validated());
 
-        return $budget;
+        return redirect()->route('budget.index')->with('success', 'Budget updated successfully.');
     }
 
     public function destroy(Budget $budget)
@@ -53,6 +57,7 @@ class BudgetController extends Controller
         // TODO Authorization
         $budget->delete();
 
-        return response()->json();
+        //TODO success message alerts
+        return redirect()->route('budget.index')->with('success', 'Budget deleted successfully.');
     }
 }
