@@ -28,10 +28,10 @@ This is a simple web application built on Laravel and SQLite for simple family a
   - [ ] Has budget_items of how income will be spent - has categories
   - [ ] Accesses ledger for given time range both debits and credits
 - Create categories
-  - [ ] Name, budget_id
+  - [x] Name, budget_id
 - Create Accounts
-  - [ ] id, budget_id, name, bank name, bank address
-- Create budget_items
+  - [ ] id, budget_id, name, account_number (last four), bank name, bank address
+- Create budget_items (period_category)
     - [ ] id, period_id, category_id, amount (cents)
 - Create tags
   - [ ] Tags are for further describing the broad categories for future statistical analysis

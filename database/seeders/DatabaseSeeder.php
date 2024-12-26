@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Budget;
-use App\Models\Category;
 use App\Models\Role;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Env;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,31 +16,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // create default roles
         $adminRole = Role::create(['name' => 'admin']);
-        $UserRole = Role::create(['name' => 'user']);
+        Role::create(['name' => 'user']);
 
-        $adminUser = User::factory()->create([
-            'name' => 'Test Admin User',
-            'email' => 'admin@example.com',
+        // Default user and role from .env
+        $defaultUser = User::factory()->create([
+            'name' => Env::get('DEFAULT_USER_NAME', 'Default User'),
+            'email' => Env::get('DEFAULT_USER_EMAIL', 'default@default.com'),
+            'password' => bcrypt(Env::get('DEFAULT_USER_PASSWORD', 'password')),
         ]);
 
-        $user = User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
-        $adminUser->roles()->attach($adminRole);
-        $user->roles()->attach($UserRole);
+        $defaultUser->roles()->attach($adminRole);
 
         // Generate a budget
-        $budget = Budget::factory(3)->create(['user_id' => $adminUser->id]);
+        $budget = Budget::factory()->create([
+            'user_id' => $defaultUser->id,
+            'name' => 'Family Budget'
+        ]);
 
-        $adminUser->current_budget_id = $budget[0]->id;
+        $defaultUser->current_budget_id = $budget->id;
 
-        $adminUser->save();
+        $defaultUser->save();
 
         // create categories
-        Category::factory(10)->create(['budget_id' => $budget[0]->id]);
+        $this->callWith(CategorySeeder::class, ['budget_id' => $budget->id]);
     }
 }
