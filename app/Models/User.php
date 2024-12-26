@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\Hasone;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use phpDocumentor\Reflection\Types\Boolean;
 
 class User extends Authenticatable
 {
@@ -31,7 +30,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    public function hasRole($role): Boolean {
+    public function hasRole($role): bool {
         return $this->roles()->where('name', $role)->exists();
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BudgetController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('budget', BudgetController::class);
     Route::patch('/budget/{budget}', [BudgetController::class, 'update'])->name('budget.update');
 
+    Route::resource('category', CategoryController::class);
+    Route::patch('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
 });
 
 require __DIR__.'/auth.php';

@@ -28,8 +28,8 @@
                                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                     <x-app.nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-app.nav-link>
                                     <x-app.nav-link href="/budget" :active="request()->is('budget')">Budgets</x-app.nav-link>
-                                    <x-app.nav-link href="/ledger" :active="request()->is('ledger')">Ledger</x-app.nav-link>
                                     <x-app.nav-link href="/category" :active="request()->is('category')">Categories</x-app.nav-link>
+                                    <x-app.nav-link href="/ledger" :active="request()->is('ledger')">Ledger</x-app.nav-link>
                                     <x-app.nav-link href="#" :active="request()->is('report')">Reports</x-app.nav-link>
                                 </div>
                             </div>
@@ -105,8 +105,8 @@
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <x-app.mobile-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="/budget" :active="request()->is('budget')">Budgets</x-app.mobile-nav-link>
-                        <x-app.mobile-nav-link href="/ledger" :active="request()->is('ledger')">Budgets</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="/category" :active="request()->is('category')">Categories</x-app.mobile-nav-link>
+                        <x-app.mobile-nav-link href="/ledger" :active="request()->is('ledger')">Ledger</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="#" :active="request()->is('report')">Reports</x-app.mobile-nav-link>
                     </div>
                     <div class="border-t border-gray-700 pb-3 pt-4">

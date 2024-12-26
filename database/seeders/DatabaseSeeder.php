@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Budget;
+use App\Models\Category;
 use App\Models\Role;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -30,5 +32,15 @@ class DatabaseSeeder extends Seeder
 
         $adminUser->roles()->attach($adminRole);
         $user->roles()->attach($UserRole);
+
+        // Generate a budget
+        $budget = Budget::factory(3)->create(['user_id' => $adminUser->id]);
+
+        $adminUser->current_budget_id = $budget[0]->id;
+
+        $adminUser->save();
+
+        // create categories
+        Category::factory(10)->create(['budget_id' => $budget[0]->id]);
     }
 }

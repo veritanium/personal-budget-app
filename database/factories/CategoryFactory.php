@@ -3,22 +3,22 @@
 namespace Database\Factories;
 
 use App\Models\Budget;
-use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class BudgetFactory extends Factory
+class CategoryFactory extends Factory
 {
-    protected $model = budget::class;
+    protected $model = Category::class;
 
     public function definition(): array
     {
         return [
-            'name' => fake()->company(),
-            'description' => fake()->paragraph(),
-            'user_id' => User::factory(),
+            'name' => fake()->word(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
+
+            'budget_id' => Budget::factory(),
         ];
     }
 }
