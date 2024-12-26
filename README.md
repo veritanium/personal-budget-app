@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Personal Budget Tool
+## Personal Budget App
 
 This is a simple web application built on Laravel and SQLite for simple family and personal accounting and budgeting
 
@@ -31,6 +31,8 @@ This is a simple web application built on Laravel and SQLite for simple family a
   - [x] Name, budget_id
 - Create Accounts
   - [ ] id, budget_id, name, account_number (last four), bank name, bank address
+- Create entities
+  - Way to track stores and businesses purchased from
 - Create budget_items (period_category)
     - [ ] id, period_id, category_id, amount (cents)
 - Create tags
@@ -56,6 +58,12 @@ This is a simple web application built on Laravel and SQLite for simple family a
   - [ ] Graphs will then be generated to show financial patterns
   - [ ] Items calculated will be total
 - [ ] Create deployment to prod server environment
+
+## Deployment
+
+This repository's default seeder sets up a primary user based on settings in the `.env`.
+Ensure `DEFAULT_USER_NAME`, `DEFAULT_USER_EMAIL`, and `DEFAULT_USER_PASSWORD` are set in the environment variables.
+
 
 ## License
 
