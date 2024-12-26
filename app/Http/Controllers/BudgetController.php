@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BudgetRequest;
 use App\Models\Budget;
+use App\Models\Category;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class BudgetController extends Controller
 {
+    use AuthorizesRequests;
+
     public function index()
     {
         // TODO paginate
@@ -25,6 +30,7 @@ class BudgetController extends Controller
 
     public function store(BudgetRequest $request)
     {
+        $this->authorize('create', Budget::class);
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
         $newBudget = Budget::create($validated);
@@ -36,17 +42,18 @@ class BudgetController extends Controller
 
     public function show(Budget $budget)
     {
-        // TODO Authorization
+        $this->authorize('view', $budget);
         return $budget;
     }
 
     public function edit(Budget $budget) {
+        $this->authorize('edit', $budget);
         return view('budget.edit', compact('budget'));
     }
 
     public function update(BudgetRequest $request, Budget $budget)
     {
-        // TODO Authorization
+        $this->authorize('update', $budget);
         $budget->update($request->validated());
 
         return redirect()->route('budget.index')->with('success', 'Budget updated successfully.');
@@ -54,7 +61,7 @@ class BudgetController extends Controller
 
     public function destroy(Budget $budget)
     {
-        // TODO Authorization
+        $this->authorize('delete', $budget);
         $budget->delete();
 
         //TODO success message alerts

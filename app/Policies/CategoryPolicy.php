@@ -20,6 +20,11 @@ class CategoryPolicy
         return true;
     }
 
+    public function edit(User $user, Category $category): bool
+    {
+        return $user->hasRole('admin') || $user->current_budget_id === $category->budget_id;
+    }
+
     public function update(User $user, Category $category): bool
     {
         return $user->hasRole('admin') || $user->current_budget_id === $category->budget_id;
