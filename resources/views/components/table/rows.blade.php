@@ -7,11 +7,19 @@
                 @case('link')
                     <x-table.row>
                         <x-nav-link :href="route($column['route'], $row['id'])">Edit</x-nav-link>
-                        {{ $row->getAttribute($column['column']) }}
+                        {{ $row[$column['column']] }}
                     </x-table.row>
                     @break
                 @default
-                    <x-table.row>{{ $row->getAttribute($column['column']) }}</x-table.row>
+                    @if(Arr::exists($column, 'model'))
+                        @if(isset($row[$column['model']][$column['column']]))
+                            <x-table.row>{{ $row[$column['model']][$column['column']] }}</x-table.row>
+                        @else
+                            <x-table.row />
+                        @endif
+                    @else
+                        <x-table.row>{{ $row[$column['column']] }}</x-table.row>
+                    @endif
             @endswitch
         @endforeach
     </tr>

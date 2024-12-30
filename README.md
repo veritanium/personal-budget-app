@@ -36,16 +36,20 @@ This is a simple web application built on Laravel and SQLite for simple family a
 - Create budget_items (period_category)
     - [ ] id, period_id, category_id, amount (cents)
 - Create tags
-  - [ ] Tags are for further describing the broad categories for future statistical analysis
-  - [ ] e.g. Gaia.com could have category of entertainment but tags of 'non-essential' and 'steaming'
+  - [x] Tags are for further describing the broad categories for future statistical analysis
+  - [x] e.g. Gaia.com could have category of entertainment but tags of 'non-essential' and 'steaming'
   - [ ] Create pivot table for budget_item_tag
 - Create transactions (ledger)
-    - [ ] Tracks debits and credits and transfer 
-    - [ ] Has categories, tags, and accounts
-    - [ ] Debits have from account
-    - [ ] Credits have to account
+    - [x] Tracks debits and credits
+    - [x] Has categories and accounts
+    - [ ] Has tags
+    - [x] Debits have from account
+    - [x] Credits have to account
     - [ ] Transfers create two ledger entries - 1 debit and 1 credit for the respective accounts, tags, and categories
-    - [ ] id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged), entity_id (optional), currency_type (cash, digital)
+    - [x] id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged), entity_id (optional), currency_type (cash, digital)
+    - [ ] transactions auto format dollars and decimals but store in cents
+    - [ ] transactions colored red for debit
+    - [ ] transactions can be edited and deleted
 - [ ] Create pivot table for transaction_tag
 - [ ] Create view of budgets
     - [ ] Views List of available budgets

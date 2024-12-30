@@ -6,7 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EntityController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TagController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,6 +37,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('tag', TagController::class);
     Route::patch('/tag/{tag}', [TagController::class, 'update'])->name('tag.update');
+
+    Route::resource('transaction', TransactionController::class);
+    Route::patch('/transaction/{transaction}', [TransactionController::class, 'update'])->name('transaction.update');
 });
 
 require __DIR__.'/auth.php';

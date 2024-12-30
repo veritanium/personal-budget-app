@@ -1,14 +1,36 @@
-@props(['label', 'name', 'options'])
+@props(['label', 'name', 'options', 'nullable' => true])
 @php
     $oldValue = old($name);
+
+    //format model
+    $list_options = [];
+    if (count($options) && $options[0] instanceof \Illuminate\Database\Eloquent\Model) {
+        foreach ($options as $option) {
+            $option_array = $option->attributesToArray();
+            $new_option = [];
+            if(Arr::exists($option_array, 'id')) {
+                $new_option['value'] = $option_array['id'];
+            }
+            if(Arr::exists($option_array, 'name')) {
+                $new_option['label'] = $option_array['name'];
+            }
+            array_push($list_options, $new_option);
+        }
+    } else {
+        $list_options = $options;
+    }
+
 @endphp
 
 <div>
     <label for="{{ $name }}" class="block text-sm/6 font-medium text-gray-900">{{ $label }}</label>
     <div class="mt-2 grid grid-cols-1">
         <select id="{{ $name }}" name="{{ $name }}" autocomplete="{{ $name }}-name" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-            <option></option>
-            @foreach($options as $option)
+            @if($nullable)
+                <option></option>
+            @endif
+
+            @foreach($list_options as $option)
                 <option
                     value="{{ $option['value'] }}"
                     {{  $oldValue === $option['value'] || $attributes->get('value') === $option['value'] ? 'selected' : '' }}

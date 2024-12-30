@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Budget::class);
+            $table->foreignIdFor(Budget::class)->constrained('budgets')->cascadeOnDelete();
             $table->string('name');
             $table->string('bank_name')->nullable();
             $table->string('account_number')->comment('Last Four')->nullable();

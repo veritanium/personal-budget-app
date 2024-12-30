@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Account;
 use App\Models\Budget;
+use App\Models\Category;
+use App\Models\Entity;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -46,5 +48,11 @@ class TestSeeder extends Seeder
         foreach ($budgets as $budget) {
             Account::factory(5)->create(['budget_id' => $budget->id]);
         }
+
+        // create entities
+        Entity::factory(10)->create(['budget_id' => $budgets[0]->id]);
+
+        // create Tags
+        Tag::factory(10)->create(['budget_id' => $budgets[0]->id]);
     }
 }
