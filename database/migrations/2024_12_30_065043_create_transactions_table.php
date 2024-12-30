@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->foreignIdFor(Account::class)->constrained('accounts')->restrictOnDelete();
             $table->foreignIdFor(Category::class)->nullable()->constrained('categories')->restrictOnDelete();
             $table->foreignIdFor(Entity::class)->nullable()->constrained('entities')->restrictOnDelete();
+            $table->string('type');
             $table->string('title');
             $table->text('notes')->nullable();
             $table->integer('amount');

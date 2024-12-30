@@ -11,11 +11,12 @@ class TransactionRequest extends FormRequest
     {
         return [
             'title' => ['required'],
-            'notes' => ['nullable'],
-            'amount' => ['required', 'integer', 'min:-1000000', 'max:1000000'],
             'account_id' => ['required', 'exists:accounts,id'],
             'category_id' => ['nullable', 'exists:categories,id'],
             'entity_id' => ['nullable', 'exists:entities,id'],
+            'amount' => ['required', 'min:0', 'max:1000000'],
+            'type' => ['required', Rule::in(['debit', 'credit'])],
+            'notes' => ['nullable'],
         ];
     }
 

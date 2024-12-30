@@ -34,7 +34,10 @@
                             <x-form.select label="Entity" name="entity_id" :options="$entities" />
                         </div>
                         <div class="col-span-full">
-                            <x-form.input label="Amount" name="amount" type="number" required />
+                            <x-form.select label="Transaction Type" name="type" :options="$type_options" :nullable="false" required />
+                        </div>
+                        <div class="col-span-full">
+                            <x-form.input label="Amount" name="amount" x-mask:dynamic="$money($input)" placeholder="0.00" required />
                         </div>
                         <div class="col-span-full">
                             <x-form.input label="Notes" name="notes" type="textarea" rows="1" />

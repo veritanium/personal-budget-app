@@ -33,8 +33,10 @@
             @foreach($list_options as $option)
                 <option
                     value="{{ $option['value'] }}"
-                    {{  $oldValue === $option['value'] || $attributes->get('value') === $option['value'] ? 'selected' : '' }}
-                >{{ $option['label'] }}</option>
+                    {{  $oldValue === $option['value'] || $attributes->get('value') == $option['value'] ? 'selected' : '' }}
+                >
+                    {{ $option['label'] }}
+                </option>
             @endforeach
         </select>
         <svg class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon">

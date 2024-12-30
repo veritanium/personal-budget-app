@@ -35,6 +35,7 @@ class TransactionController extends Controller
     {
         $this->authorize('create', Transaction::class);
         $validated = $request->validated();
+
         $validated['budget_id'] = Auth::user()->current_budget_id;
         Transaction::create($validated);
 
@@ -51,7 +52,10 @@ class TransactionController extends Controller
     public function edit(Transaction $transaction)
     {
         $this->authorize('update', $transaction);
-        return view('transactions.edit', compact('transaction'));
+        $accounts = Account::where('budget_id', '=', Auth::user()->current_budget_id)->get();
+        $categories = Category::where('budget_id', '=', Auth::user()->current_budget_id)->get();
+        $entities = Entity::where('budget_id', '=', Auth::user()->current_budget_id)->get();
+        return view('transactions.edit', compact('transaction', 'accounts' , 'categories', 'entities'));
     }
 
     public function update(TransactionRequest $request, Transaction $transaction)

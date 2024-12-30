@@ -21,7 +21,9 @@
         ],
         [
             "header" => "Amount",
-            "column" => "amount"
+            "column" => "amount",
+            "model_method" => "amountCentsToDollars",
+            "row_style_method" => "transactionTypeStyle"
         ],
         [
             "header" => "",
