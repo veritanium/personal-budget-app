@@ -5,6 +5,7 @@ use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EntityController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('entity', EntityController::class);
     Route::patch('/entity/{entity}', [EntityController::class, 'update'])->name('entity.update');
+
+    Route::resource('tag', TagController::class);
+    Route::patch('/tag/{tag}', [TagController::class, 'update'])->name('tag.update');
 });
 
 require __DIR__.'/auth.php';
