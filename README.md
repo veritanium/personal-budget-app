@@ -16,9 +16,9 @@ This is a simple web application built on Laravel and SQLite for simple family a
 - User access
   - [x] Remove registration from public
   - [ ] Only admin can create users
-  - [ ] Admin can see every budget
+  - [x] Admin can see every budget
   - [x] Create roles
-  - [ ] Create policies
+  - [x] Create policies
 - Create Budget
     - [x]  Has name (e.g. Family Budget)
     - [x] Assigned to creating user 
@@ -30,9 +30,9 @@ This is a simple web application built on Laravel and SQLite for simple family a
 - Create categories
   - [x] Name, budget_id
 - Create Accounts
-  - [ ] id, budget_id, name, account_number (last four), bank name, bank address
+  - [x] id, budget_id, name, account_number (last four), bank name, location
 - Create entities
-  - Way to track stores and businesses purchased from
+  - [x] Way to track stores and businesses purchased from
 - Create budget_items (period_category)
     - [ ] id, period_id, category_id, amount (cents)
 - Create tags
@@ -46,7 +46,7 @@ This is a simple web application built on Laravel and SQLite for simple family a
     - [ ] Credits have to account
     - [ ] Transfers create two ledger entries - 1 debit and 1 credit for the respective accounts, tags, and categories
     - [ ] id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged), entity_id (optional), currency_type (cash, digital)
-- [ ] Create pivot table for ledger_tag
+- [ ] Create pivot table for transaction_tag
 - [ ] Create view of budgets
     - [ ] Views List of available budgets
 - Create view of periods (like 1 month view containing two period views)

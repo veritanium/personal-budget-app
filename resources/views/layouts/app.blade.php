@@ -30,6 +30,7 @@
                                     <x-app.nav-link href="/budget" :active="request()->is('budget')">Budgets</x-app.nav-link>
                                     <x-app.nav-link href="/category" :active="request()->is('category')">Categories</x-app.nav-link>
                                     <x-app.nav-link href="/account" :active="request()->is('account')">Accounts</x-app.nav-link>
+                                    <x-app.nav-link href="/entity" :active="request()->is('entity')">Entities</x-app.nav-link>
                                     <x-app.nav-link href="/ledger" :active="request()->is('ledger')">Ledger</x-app.nav-link>
                                     <x-app.nav-link href="#" :active="request()->is('report')">Reports</x-app.nav-link>
                                 </div>
@@ -108,6 +109,7 @@
                         <x-app.mobile-nav-link href="/budget" :active="request()->is('budget')">Budgets</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="/category" :active="request()->is('category')">Categories</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="/account" :active="request()->is('account')">Accounts</x-app.mobile-nav-link>
+                        <x-app.mobile-nav-link href="/entity" :active="request()->is('entity')">Entities</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="/ledger" :active="request()->is('ledger')">Ledger</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="#" :active="request()->is('report')">Reports</x-app.mobile-nav-link>
                     </div>

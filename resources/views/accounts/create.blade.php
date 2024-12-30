@@ -44,7 +44,7 @@
                 </x-form.section>
 
                 <div class="mt-6 flex items-center justify-end gap-x-6">
-                    <x-app.cancel-button href="/budget">Cancel</x-app.cancel-button>
+                    <x-app.cancel-button href="/account">Cancel</x-app.cancel-button>
                     <x-app.primary-button type="submit">Save</x-app.primary-button>
                 </div>
             </x-form.form>

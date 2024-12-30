@@ -35,7 +35,7 @@ class AccountController extends Controller
         $this->authorize('create', Account::class);
         $validated = $request->validated();
         $validated['budget_id'] = auth()->user()->current_budget_id;
-        $newBudget = Account::create($validated);
+        Account::create($validated);
 
         return redirect()->route('account.index')->with('success', 'Account created successfully.');
     }
