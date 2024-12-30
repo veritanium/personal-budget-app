@@ -13,7 +13,7 @@ class AccountPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class AccountPolicy
      */
     public function view(User $user, Account $account): bool
     {
-        return false;
+        return $user->hasRole('admin') || $user->budgets->accounts->contains($account);
     }
 
     /**
@@ -29,7 +29,7 @@ class AccountPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class AccountPolicy
      */
     public function update(User $user, Account $account): bool
     {
-        return false;
+        return $user->hasRole('admin') || $user->budgets->accounts->contains($account);
     }
 
     /**
@@ -45,22 +45,6 @@ class AccountPolicy
      */
     public function delete(User $user, Account $account): bool
     {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Account $account): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Account $account): bool
-    {
-        return false;
+        return $user->hasRole('admin') || $user->budgets->accounts->contains($account);
     }
 }

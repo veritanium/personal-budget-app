@@ -45,7 +45,7 @@ This is a simple web application built on Laravel and SQLite for simple family a
     - [ ] Debits have from account
     - [ ] Credits have to account
     - [ ] Transfers create two ledger entries - 1 debit and 1 credit for the respective accounts, tags, and categories
-    - [ ] id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged)
+    - [ ] id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged), entity_id (optional), currency_type (cash, digital)
 - [ ] Create pivot table for ledger_tag
 - [ ] Create view of budgets
     - [ ] Views List of available budgets

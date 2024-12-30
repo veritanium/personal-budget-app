@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
@@ -25,6 +26,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('category', CategoryController::class);
     Route::patch('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
+
+    Route::resource('account', AccountController::class);
+    Route::patch('/account/{account}', [AccountController::class, 'update'])->name('account.update');
 });
 
 require __DIR__.'/auth.php';

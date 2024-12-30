@@ -9,7 +9,7 @@ class BudgetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'unique:budgets,name'],
+            'name' => ['required', 'unique:budgets,name,' . $this->budget?->id],
             'description' => ['max:500'],
         ];
     }
