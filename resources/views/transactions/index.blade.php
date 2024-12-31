@@ -26,10 +26,15 @@
             "row_style_method" => "transactionTypeStyle"
         ],
         [
+            "header" => "Date",
+            "column" => "date"
+        ],
+        [
             "header" => "",
             "column" => "edit",
             "type" => "link",
-            "route" => 'transaction.edit'
+            "route" => 'transaction.edit',
+            "default_text" => "Edit",
         ]
     ];
 @endphp

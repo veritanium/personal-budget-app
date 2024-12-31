@@ -8,7 +8,8 @@
             "header" => "",
             "column" => "edit",
             "type" => "link",
-            "route" => 'tag.edit'
+            "route" => 'tag.edit',
+            "default_text" => "Edit",
         ]
     ];
 @endphp

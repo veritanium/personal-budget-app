@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('title');
             $table->text('notes')->nullable();
             $table->integer('amount');
+            $table->date('date');
             $table->timestamps();
             $table->softDeletes();
         });

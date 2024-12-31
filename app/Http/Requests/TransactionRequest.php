@@ -16,6 +16,7 @@ class TransactionRequest extends FormRequest
             'entity_id' => ['nullable', 'exists:entities,id'],
             'amount' => ['required', 'min:0', 'max:1000000'],
             'type' => ['required', Rule::in(['debit', 'credit'])],
+            'date' => ['required', 'date'],
             'notes' => ['nullable'],
         ];
     }

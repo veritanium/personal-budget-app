@@ -12,7 +12,8 @@
             "header" => "",
             "column" => "edit",
             "type" => "link",
-            "route" => 'entity.edit'
+            "route" => 'entity.edit',
+            "default_text" => "Edit",
         ]
     ];
 @endphp

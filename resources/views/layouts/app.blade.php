@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-100">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-100 dark:bg-gray-700">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +28,7 @@
                                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                     <x-app.nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-app.nav-link>
                                     <x-app.nav-link href="/budget" :active="request()->is('budget')">Budgets</x-app.nav-link>
+                                    <x-app.nav-link href="/period" :active="request()->is('period')">Periods</x-app.nav-link>
                                     <x-app.nav-link href="/category" :active="request()->is('category')">Categories</x-app.nav-link>
                                     <x-app.nav-link href="/account" :active="request()->is('account')">Accounts</x-app.nav-link>
                                     <x-app.nav-link href="/entity" :active="request()->is('entity')">Entities</x-app.nav-link>
@@ -108,6 +109,7 @@
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <x-app.mobile-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="/budget" :active="request()->is('budget')">Budgets</x-app.mobile-nav-link>
+                        <x-app.mobile-nav-link href="/period" :active="request()->is('period')">Periods</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="/category" :active="request()->is('category')">Categories</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="/account" :active="request()->is('account')">Accounts</x-app.mobile-nav-link>
                         <x-app.mobile-nav-link href="/entity" :active="request()->is('entity')">Entities</x-app.mobile-nav-link>

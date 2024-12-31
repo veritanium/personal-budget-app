@@ -55,7 +55,7 @@ class Transaction extends Model
     public function transactionTypeStyle(): string
     {
         if($this->attributes['type'] === 'debit') {
-            return 'text-red-500';
+            return 'text-red-500 dark:text-red-500';
         }
         return '';
     }

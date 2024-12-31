@@ -24,7 +24,8 @@
             "header" => "",
             "column" => "edit",
             "type" => "link",
-            "route" => 'account.edit'
+            "route" => 'account.edit',
+            "default_text" => "Edit",
         ]
     ];
 @endphp

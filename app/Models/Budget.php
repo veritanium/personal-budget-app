@@ -34,4 +34,8 @@ class Budget extends Model
     public function transactions(): HasMany {
         return $this->hasMany(Transaction::class);
     }
+
+    public function periods(): HasMany {
+        return $this->hasMany(Period::class);
+    }
 }

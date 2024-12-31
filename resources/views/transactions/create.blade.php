@@ -40,6 +40,9 @@
                             <x-form.input label="Amount" name="amount" x-mask:dynamic="$money($input)" placeholder="0.00" required />
                         </div>
                         <div class="col-span-full">
+                            <x-form.input label="Date" name="date" type="date" value="{{ now()->toDateString() }}" required />
+                        </div>
+                        <div class="col-span-full">
                             <x-form.input label="Notes" name="notes" type="textarea" rows="1" />
                         </div>
                     </x-form.grid>

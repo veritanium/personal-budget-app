@@ -21,8 +21,14 @@
             @switch($column['type'] ?? 'null')
                 @case('link')
                     <x-table.row>
-                        <x-nav-link :href="route($column['route'], $row['id'])">Edit</x-nav-link>
-                        {{ $columnData }}
+                        <x-nav-link
+                            :href="route($column['route'], $row['id'])"
+                        >
+                            {{ $columnData ?? $column['default_text'] }}
+                            <div class="w-5 ml-2">
+                                <x-icon.edit />
+                            </div>
+                        </x-nav-link>
                     </x-table.row>
                     @break
                 @default

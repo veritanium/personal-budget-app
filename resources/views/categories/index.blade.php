@@ -8,7 +8,8 @@ $columns = [
         "header" => "",
         "column" => "edit",
         "type" => "link",
-        "route" => 'category.edit'
+        "route" => 'category.edit',
+        "default_text" => "Edit",
     ]
 ];
 @endphp

@@ -34,7 +34,7 @@ This is a simple web application built on Laravel and SQLite for simple family a
 - Create entities
   - [x] Way to track stores and businesses purchased from
 - Create budget_items (period_category)
-    - [ ] id, period_id, category_id, amount (cents)
+    - [ ] id, period_id, category_id, amount (cents), type (manual, cash, autopayment)
 - Create tags
   - [x] Tags are for further describing the broad categories for future statistical analysis
   - [x] e.g. Gaia.com could have category of entertainment but tags of 'non-essential' and 'steaming'
@@ -45,11 +45,11 @@ This is a simple web application built on Laravel and SQLite for simple family a
     - [ ] Has tags
     - [x] Debits have from account
     - [x] Credits have to account
-    - [ ] Transfers create two ledger entries - 1 debit and 1 credit for the respective accounts, tags, and categories
+    - [?] Transfers create two ledger entries - 1 debit and 1 credit for the respective accounts, tags, and categories
     - [x] id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged), entity_id (optional), currency_type (cash, digital)
-    - [ ] transactions auto format dollars and decimals but store in cents
-    - [ ] transactions colored red for debit
-    - [ ] transactions can be edited and deleted
+    - [x] transactions auto format dollars and decimals but store in cents
+    - [x] transactions colored red for debit
+    - [x] transactions can be edited and deleted
 - [ ] Create pivot table for transaction_tag
 - [ ] Create view of budgets
     - [ ] Views List of available budgets

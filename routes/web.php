@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EntityController;
+use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TransactionController;
@@ -40,6 +41,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('transaction', TransactionController::class);
     Route::patch('/transaction/{transaction}', [TransactionController::class, 'update'])->name('transaction.update');
+
+    Route::resource('period', PeriodController::class);
+    Route::patch('/period/{period}', [PeriodController::class, 'update'])->name('period.update');
 });
 
 require __DIR__.'/auth.php';
