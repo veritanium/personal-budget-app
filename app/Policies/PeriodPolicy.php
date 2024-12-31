@@ -22,7 +22,7 @@ class PeriodPolicy
 
     public function create(User $user): bool
     {
-        return $user->hasRole('admin') || $user->budgets->periods->contains($period);
+        return $user->hasRole('admin');
     }
 
     public function update(User $user, Period $period): bool
