@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Budget;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +14,12 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Budget::class)->constrained('budgets')->cascadeOnDelete();
             $table->string('name');
-            $table->string('bank_name');
+            $table->string('bank_name')->nullable();
             $table->string('account_number')->comment('Last Four')->nullable();
-            $table->enum('account_type', ['checking', 'savings'])->default('checking');
-            $table->string('bank_address')->nullable();
+            $table->enum('account_type', ['checking', 'savings', 'cash'])->default('checking');
+            $table->string('location')->nullable();
             $table->timestamps();
         });
     }

@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Account;
 use App\Models\Budget;
+use App\Models\Category;
+use App\Models\Entity;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -32,13 +35,24 @@ class TestSeeder extends Seeder
         $user->roles()->attach($UserRole);
 
         // Generate budgets
-        $budget = Budget::factory(3)->create(['user_id' => $adminUser->id]);
+        $budgets = Budget::factory(3)->create(['user_id' => $adminUser->id]);
 
-        $adminUser->current_budget_id = $budget[0]->id;
+        $adminUser->current_budget_id = $budgets[0]->id;
 
         $adminUser->save();
 
         // create categories
-        $this->callWith(CategorySeeder::class, ['budget_id' => $budget[0]->id]);
+        $this->callWith(CategorySeeder::class, ['budget_id' => $budgets[0]->id]);
+
+        // create accounts
+        foreach ($budgets as $budget) {
+            Account::factory(5)->create(['budget_id' => $budget->id]);
+        }
+
+        // create entities
+        Entity::factory(10)->create(['budget_id' => $budgets[0]->id]);
+
+        // create Tags
+        Tag::factory(10)->create(['budget_id' => $budgets[0]->id]);
     }
 }

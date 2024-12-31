@@ -9,7 +9,7 @@
             <x-form.section>
                 <x-form.grid>
                     <div class="col-span-full">
-                        <x-form.input label="Name" name="name" />
+                        <x-form.input label="Name" name="name" required />
                     </div>
 
                     <div class="col-span-full">

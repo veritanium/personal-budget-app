@@ -22,4 +22,16 @@ class Budget extends Model
     public function accounts(): HasMany {
         return $this->hasMany(Account::class);
     }
+
+    public function entities(): HasMany {
+        return $this->hasMany(Entity::class);
+    }
+
+    public function tags(): HasMany {
+        return $this->hasMany(Tag::class);
+    }
+
+    public function transactions(): HasMany {
+        return $this->hasMany(Transaction::class);
+    }
 }

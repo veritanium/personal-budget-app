@@ -6,17 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Account extends Model
+class Entity extends Model
 {
-    /** @use HasFactory<\Database\Factories\AccountFactory> */
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    public function budgets(): BelongsTo {
+    public function budget(): BelongsTo
+    {
         return $this->belongsTo(Budget::class);
     }
 
-    public function transactions(): HasMany {
+    public function transactions(): HasMany
+    {
         return $this->hasMany(Transaction::class);
     }
 }

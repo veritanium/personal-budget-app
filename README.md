@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Personal Budget Tool
+## Personal Budget App
 
 This is a simple web application built on Laravel and SQLite for simple family and personal accounting and budgeting
 
@@ -16,9 +16,9 @@ This is a simple web application built on Laravel and SQLite for simple family a
 - User access
   - [x] Remove registration from public
   - [ ] Only admin can create users
-  - [ ] Admin can see every budget
+  - [x] Admin can see every budget
   - [x] Create roles
-  - [ ] Create policies
+  - [x] Create policies
 - Create Budget
     - [x]  Has name (e.g. Family Budget)
     - [x] Assigned to creating user 
@@ -30,21 +30,27 @@ This is a simple web application built on Laravel and SQLite for simple family a
 - Create categories
   - [x] Name, budget_id
 - Create Accounts
-  - [ ] id, budget_id, name, account_number (last four), bank name, bank address
+  - [x] id, budget_id, name, account_number (last four), bank name, location
+- Create entities
+  - [x] Way to track stores and businesses purchased from
 - Create budget_items (period_category)
     - [ ] id, period_id, category_id, amount (cents)
 - Create tags
-  - [ ] Tags are for further describing the broad categories for future statistical analysis
-  - [ ] e.g. Gaia.com could have category of entertainment but tags of 'non-essential' and 'steaming'
+  - [x] Tags are for further describing the broad categories for future statistical analysis
+  - [x] e.g. Gaia.com could have category of entertainment but tags of 'non-essential' and 'steaming'
   - [ ] Create pivot table for budget_item_tag
 - Create transactions (ledger)
-    - [ ] Tracks debits and credits and transfer 
-    - [ ] Has categories, tags, and accounts
-    - [ ] Debits have from account
-    - [ ] Credits have to account
+    - [x] Tracks debits and credits
+    - [x] Has categories and accounts
+    - [ ] Has tags
+    - [x] Debits have from account
+    - [x] Credits have to account
     - [ ] Transfers create two ledger entries - 1 debit and 1 credit for the respective accounts, tags, and categories
-    - [ ] id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged)
-- [ ] Create pivot table for ledger_tag
+    - [x] id, budget_id, title, description (optional), type (debit, credit), amount (cents), account_id, category_id (optional but strongly encouraged), entity_id (optional), currency_type (cash, digital)
+    - [ ] transactions auto format dollars and decimals but store in cents
+    - [ ] transactions colored red for debit
+    - [ ] transactions can be edited and deleted
+- [ ] Create pivot table for transaction_tag
 - [ ] Create view of budgets
     - [ ] Views List of available budgets
 - Create view of periods (like 1 month view containing two period views)
@@ -56,6 +62,12 @@ This is a simple web application built on Laravel and SQLite for simple family a
   - [ ] Graphs will then be generated to show financial patterns
   - [ ] Items calculated will be total
 - [ ] Create deployment to prod server environment
+
+## Deployment
+
+This repository's default seeder sets up a primary user based on settings in the `.env`.
+Ensure `DEFAULT_USER_NAME`, `DEFAULT_USER_EMAIL`, and `DEFAULT_USER_PASSWORD` are set in the environment variables.
+
 
 ## License
 

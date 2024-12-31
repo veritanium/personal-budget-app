@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EntityController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +28,18 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('category', CategoryController::class);
     Route::patch('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
+
+    Route::resource('account', AccountController::class);
+    Route::patch('/account/{account}', [AccountController::class, 'update'])->name('account.update');
+
+    Route::resource('entity', EntityController::class);
+    Route::patch('/entity/{entity}', [EntityController::class, 'update'])->name('entity.update');
+
+    Route::resource('tag', TagController::class);
+    Route::patch('/tag/{tag}', [TagController::class, 'update'])->name('tag.update');
+
+    Route::resource('transaction', TransactionController::class);
+    Route::patch('/transaction/{transaction}', [TransactionController::class, 'update'])->name('transaction.update');
 });
 
 require __DIR__.'/auth.php';

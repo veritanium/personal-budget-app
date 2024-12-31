@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Account;
 use App\Models\Budget;
 use App\Models\Role;
 use App\Models\User;
@@ -41,5 +42,12 @@ class DatabaseSeeder extends Seeder
 
         // create categories
         $this->callWith(CategorySeeder::class, ['budget_id' => $budget->id]);
+
+        // create account
+        Account::factory()->create([
+            'name' => 'Primary Checking',
+            'account_type' => 'checking',
+            'budget_id' => $budget->id,
+        ]);
     }
 }
